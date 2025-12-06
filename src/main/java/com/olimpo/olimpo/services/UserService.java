@@ -17,7 +17,7 @@ public class UserService {
         User user = new User();
         user.setNombre(nombre);
         user.setEmail(email);
-        user.setPassword(password); // pendiente encriptar
+        user.setPassword(password); // TODO: en proyecto real, encriptar
         user.setRole(UserRole.VENDEDOR);
         return userRepository.save(user);
     }
@@ -34,5 +34,18 @@ public class UserService {
     public User getById(Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado con id: " + id));
+    }
+
+    // 🔐 Login sencillo por email + password
+    public User login(String email, String password) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado con email: " + email));
+
+        if (!user.getPassword().equals(password)) {
+            // aquí podrías lanzar tu propia excepción, por ahora usamos IllegalArgumentException
+            throw new IllegalArgumentException("Credenciales inválidas");
+        }
+
+        return user;
     }
 }
