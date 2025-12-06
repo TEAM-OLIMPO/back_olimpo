@@ -24,6 +24,12 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
+    // 🗺️ Info para mapa y perfil (para vendedores)
+    private String direccion;     // Ej: "Cra 7 # 72-41, Bogotá"
+    private Double latitud;       // Ej: 4.6482837
+    private Double longitud;      // Ej: -74.2478935
+    private String descripcionNegocio; // "Panadería artesanal con productos del día"
+
     @OneToMany(mappedBy = "vendor")
     private List<Basket> baskets;
 
@@ -32,4 +38,10 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Notification> notifications;
+
+    @OneToMany(mappedBy = "vendor")
+    private List<Rating> ratingsRecibidas;
+
+    @OneToMany(mappedBy = "buyer")
+    private List<Rating> ratingsHechas;
 }

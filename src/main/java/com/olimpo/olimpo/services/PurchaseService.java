@@ -59,4 +59,10 @@ public class PurchaseService {
         return purchaseRepository.findById(purchaseId)
                 .orElseThrow(() -> new ResourceNotFoundException("Compra no encontrada con id: " + purchaseId));
     }
+
+    public List<Purchase> historialComprasComprador(Long buyerId) {
+    User buyer = userService.getById(buyerId);
+    return purchaseRepository.findByBuyerOrderByFechaCompraDesc(buyer);
+}
+
 }

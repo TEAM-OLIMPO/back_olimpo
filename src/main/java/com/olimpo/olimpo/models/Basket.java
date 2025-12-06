@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Data
@@ -20,9 +22,20 @@ public class Basket {
 
     private String descripcion;
 
-    private BigDecimal precio;
+    private BigDecimal precio; // ya es el precio reducido
 
     private int cantidadDisponible;
+
+    // 📸 Foto opcional
+    private String imageUrl; // URL a imagen en S3, Firebase, etc.
+
+    // ⏰ Horario de recogida
+    private LocalDate fechaRecogida;   // día para recoger
+    private LocalTime horaInicioRecogida;
+    private LocalTime horaFinRecogida;
+
+    // Límite por usuario, si quieres
+    private Integer maxPorUsuario;
 
     @ManyToOne
     @JoinColumn(name = "vendor_id")

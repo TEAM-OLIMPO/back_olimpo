@@ -9,4 +9,10 @@ import java.util.List;
 public interface PurchaseRepository extends JpaRepository<Purchase, Long> {
 
     List<Purchase> findTop10ByBasket_VendorOrderByFechaCompraDesc(User vendor);
+
+    List<Purchase> findByBuyerOrderByFechaCompraDesc(User buyer);
+
+
 }
+
+
