@@ -1,6 +1,5 @@
 package com.olimpo.olimpo.services;
 
-import com.olimpo.olimpo.exceptions.ResourceNotFoundException;
 import com.olimpo.olimpo.models.Rating;
 import com.olimpo.olimpo.models.User;
 import com.olimpo.olimpo.repositories.RatingRepository;
@@ -8,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.IntSummaryStatistics;   // 👈 OJO ESTE IMPORT
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 
