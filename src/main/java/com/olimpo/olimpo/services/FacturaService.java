@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.olimpo.olimpo.entities.AlertaEntity;
 import com.olimpo.olimpo.entities.FacturaEntity;
 import com.olimpo.olimpo.entities.FacturaItemEntity;
+import com.olimpo.olimpo.exceptions.FacturaNoEncontradaException;
 import com.olimpo.olimpo.dtos.AlertaDto;
 import com.olimpo.olimpo.dtos.FacturaDetalleDto;
 import com.olimpo.olimpo.dtos.FacturaItemDto;
@@ -68,7 +69,7 @@ public class FacturaService {
     }
 
     public FacturaDetalleDto obtenerFactura(Long id) {
-        FacturaEntity factura = facturaRepository.findById(id).orElseThrow(() -> new RuntimeException("Factura no encontrada"));
+        FacturaEntity factura = facturaRepository.findById(id).orElseThrow(() -> new FacturaNoEncontradaException("Factura con id " + id + " no encontrada"));
         return mapFacturaDetalle(factura);
     }
 
