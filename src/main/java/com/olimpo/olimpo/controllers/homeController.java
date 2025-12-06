@@ -8,7 +8,11 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "API de facturas en salud está corriendo. " +
-               "Usa POST /api/invoices/upload con un archivo 'file'.";
+        return "Olimpo API: backend corriendo. Usa /api/facturas para trabajar con facturas.";
+    }
+
+    @GetMapping("/api/health")
+    public String health() {
+        return "OK";
     }
 }
