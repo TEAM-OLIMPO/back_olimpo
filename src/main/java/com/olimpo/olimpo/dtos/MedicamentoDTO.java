@@ -1,36 +1,36 @@
 package com.olimpo.olimpo.dtos;
 
-public class MedicamentoDTO {
-    private String producto;
-    private String principio_activo;
-    private String forma_farmaceutica;
-    private String unidad_medida;
-    private String valor;
-    
-    public String getProducto() {
-        return producto;
-    }
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
-    public String getPrincipio_activo() {
-        return principio_activo;}
+import lombok.Data;
 
-    public void setPrincipio_activo(String principio_activo) {
-        this.principio_activo = principio_activo;
+@Data
+public class MedicamentoDTO {
+    private String nombre;
+    private Double precio;
+    private String laboratorio;
+    private String descripcion;
+
+    // Get 
+    public String getNombre() {
+        return nombre;
     }
-    public String getForma_farmaceutica() {
-        return forma_farmaceutica;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public void setForma_farmaceutica(String forma_farmaceutica) {
-        this.forma_farmaceutica = forma_farmaceutica;
+    public Double getPrecio() {
+        return precio;
     }
-    public String getUnidad_medida() {
-        return unidad_medida;}
-    public void setUnidad_medida(String unidad_medida) {
-        this.unidad_medida = unidad_medida;}
-        public String getValor() {
-            return valor;}
-    public void setValor(String valor) {
-        this.valor = valor;}   
+    public void setPrecio(Double precio) {
+        this.precio = precio;}
+    public String getLaboratorio() {
+        return laboratorio;
+    }
+    public void setLaboratorio(String laboratorio) {
+        this.laboratorio = laboratorio;
+    }
+    public String getDescripcion() {
+        return descripcion;}
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;}
+
+        
 }
